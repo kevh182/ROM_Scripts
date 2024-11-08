@@ -62,35 +62,6 @@ $DLCRoms = dir $path | Where-Object { $_.Name -match "\b(DLC)\b" -or $_.Name -ma
 
     }
 
-
-# Sega CD 32x Rom Folder
-
-# Expected path to Sega CD 32x folder
-$cd32xFolder = "$path\Sega CD 32X"
-$cd32xRoms = dir $path | Where-Object { $_.Name -match "\b(Sega CD 32X)\b" }
-
-    if($cd32xRoms.exists){
-
-        if(!(Test-Path $cd32xFolder)){
-
-                Write-Output "Sega CD 32x Roms Found"
-                # Create Sega CD 32x folder
-                Write-Output "Creating Sega CD 32x Rom Directory"
-                New-Item -Path $path -Name "Sega CD 32x" -ItemType "directory"
-
-        }
-
-        
-                # Move Sega CD 32x Roms to Sega CD 32x folder
-                Write-Output "Moving Sega CD 32x Roms to Sega CD 32x folder"
-                $cd32xRoms | Move-Item -Destination $cd32xFolder -Force
-
-
-    } else {
-
-
-    }
-
 # Beta Rom Folder
 
 # Expected path to Beta folder
